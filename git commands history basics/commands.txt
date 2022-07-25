@@ -1,0 +1,341 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\91891\Desktop\git_it> git init
+Initialized empty Git repository in C:/Users/91891/Desktop/git_it/.git/
+PS C:\Users\91891\Desktop\git_it> git log
+fatal: your current branch 'master' does not have any commits yet
+PS C:\Users\91891\Desktop\git_it> git diff
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'phone created'
+[master (root-commit) b07d788] phone created
+ 1 file changed, 1 insertion(+)
+ create mode 100644 phone.txt
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add screen guard'
+[master 3c5f9b5] add screen guard
+ 1 file changed, 1 insertion(+)
+ create mode 100644 screen.txt
+PS C:\Users\91891\Desktop\git_it> git log
+commit 3c5f9b5890343fd6d8ecedd80b0c9ac915870fdc (HEAD -> master)
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:31:06 2022 +0530
+
+    add screen guard
+
+commit b07d788d0ceef4b693502821a877fe862124661a
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:30:19 2022 +0530
+
+    phone created
+PS C:\Users\91891\Desktop\git_it> git checkout b07d788d0ceef4b693502821a877fe862124661a
+Note: switching to 'b07d788d0ceef4b693502821a877fe862124661a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b07d788 phone created
+PS C:\Users\91891\Desktop\git_it> git checkout 3c5f9b5890343fd6d8ecedd80b0c9ac915870fdc
+Previous HEAD position was b07d788 phone created
+HEAD is now at 3c5f9b5 add screen guard
+PS C:\Users\91891\Desktop\git_it> git branch
+* (HEAD detached at 3c5f9b5)
+  master
+PS C:\Users\91891\Desktop\git_it> git checkout -b music
+Switched to a new branch 'music'
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add music player'
+[music d0ad95b] add music player
+ 1 file changed, 1 insertion(+)
+ create mode 100644 music_pl.txt
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git checkout music
+Switched to branch 'music'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git merge music
+Updating 3c5f9b5..d0ad95b
+Fast-forward
+ music_pl.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 music_pl.txt
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+  music
+PS C:\Users\91891\Desktop\git_it> git branch -d music
+Deleted branch music (was d0ad95b).
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+PS C:\Users\91891\Desktop\git_it> git branch -b song1
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged] [--no-merged]
+   or: git branch [<options>] [-f] [--recurse-submodules] <branch-name> [<start-point>]
+   or: git branch [<options>] [-l] [<pattern>...]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --verbose         show hash and subject, give twice for upstream branch
+    -q, --quiet           suppress informational messages
+    -t, --track[=(direct|inherit)]
+                          set branch tracking configuration
+    -u, --set-upstream-to <upstream>
+                          change the upstream info
+    --unset-upstream      unset the upstream info
+    --color[=<when>]      use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --abbrev[=<n>]        use <n> digits to display object names
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --delete          delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --move            move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    -c, --copy            copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    -l, --list            list branch names
+    --show-current        show current branch name
+    --create-reflog       create the branch's reflog
+    --edit-description    edit the description for the branch
+    -f, --force           force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --column[=<style>]    list branches in columns
+    --sort <key>          field name to sort on
+    --points-at <object>  print only branches of the object
+    -i, --ignore-case     sorting and filtering are case insensitive
+    --recurse-submodules  recurse through submodules
+    --format <format>     format to use for the output
+
+PS C:\Users\91891\Desktop\git_it> git checkout -b song1
+Switched to a new branch 'song1'
+PS C:\Users\91891\Desktop\git_it> git branch
+  master
+* song1
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add song1'
+[song1 ebb9e86] add song1
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 app_songs.txt
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git checkout -b song2
+Switched to a new branch 'song2'
+PS C:\Users\91891\Desktop\git_it> git branch master
+fatal: a branch named 'master' already exists
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git checkout song1
+Switched to branch 'song1'
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add song1'
+[song1 789b2e6] add song1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 app.txt
+PS C:\Users\91891\Desktop\git_it> git checkout -b song2
+fatal: a branch named 'song2' already exists
+PS C:\Users\91891\Desktop\git_it> git checkout song2
+Switched to branch 'song2'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git checkout song1
+Switched to branch 'song1'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add songs list'
+[master 5a35ab7] add songs list
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 songs.txt
+PS C:\Users\91891\Desktop\git_it> git checkout song1
+Switched to branch 'song1'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git merge song1
+Merge made by the 'ort' strategy.
+ app.txt       | 1 +
+ app_songs.txt | 1 +
+ music_pl.txt  | 2 +-
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 app.txt
+ create mode 100644 app_songs.txt
+PS C:\Users\91891\Desktop\git_it> git master
+git: 'master' is not a git command. See 'git --help'.
+
+The most similar command is
+        restore
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Already on 'master'
+PS C:\Users\91891\Desktop\git_it> git merge song2
+Already up to date.
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Already on 'master'
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+  song1
+  song2
+PS C:\Users\91891\Desktop\git_it> git branch -d song1
+Deleted branch song1 (was 789b2e6).
+PS C:\Users\91891\Desktop\git_it> git branch -d song2
+Deleted branch song2 (was d0ad95b).
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+PS C:\Users\91891\Desktop\git_it> git checkout -b s1
+Switched to a new branch 's1'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+M       songs.txt
+PS C:\Users\91891\Desktop\git_it> git checkout -b s2
+Switched to a new branch 's2'
+PS C:\Users\91891\Desktop\git_it> git checkout s1
+Switched to branch 's1'
+M       songs.txt
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add song1'
+[s1 b4dfae1] add song1
+ 1 file changed, 1 insertion(+)
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git checkout s2
+Switched to branch 's2'
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+M       songs.txt
+PS C:\Users\91891\Desktop\git_it> git merge s1
+error: Your local changes to the following files would be overwritten by merge:
+        songs.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 0327b28..b4dfae1
+PS C:\Users\91891\Desktop\git_it> git checkout s2
+Switched to branch 's2'
+M       songs.txt
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add song2'
+[s2 a60c62e] add song2
+ 1 file changed, 1 insertion(+)
+PS C:\Users\91891\Desktop\git_it> git checkout master
+Switched to branch 'master'
+PS C:\Users\91891\Desktop\git_it> git merge s1
+Updating 0327b28..b4dfae1
+Fast-forward
+ songs.txt | 1 +
+ 1 file changed, 1 insertion(+)
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+  s1
+  s2
+PS C:\Users\91891\Desktop\git_it> git merge s2
+Auto-merging songs.txt
+CONFLICT (content): Merge conflict in songs.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\91891\Desktop\git_it> git merge s2
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+PS C:\Users\91891\Desktop\git_it> git add .
+PS C:\Users\91891\Desktop\git_it> git merge s2
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+PS C:\Users\91891\Desktop\git_it> git commit -m 'add 2 songs'
+[master df08566] add 2 songs
+PS C:\Users\91891\Desktop\git_it> git merge s2
+Already up to date.
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+  s1
+  s2
+PS C:\Users\91891\Desktop\git_it> git branch -d s1
+Deleted branch s1 (was b4dfae1).
+PS C:\Users\91891\Desktop\git_it> git branch -d s2
+Deleted branch s2 (was a60c62e).
+PS C:\Users\91891\Desktop\git_it> git branch
+* master
+PS C:\Users\91891\Desktop\git_it> git log
+commit df085665bc561fc698cbefd3efa4b4f05456eba2 (HEAD -> master)
+Merge: b4dfae1 a60c62e
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:52:35 2022 +0530
+
+    add 2 songs
+
+commit a60c62e4e28a40dc7892e7c79518a0f6a82b46ee
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:50:59 2022 +0530
+
+    add song2
+
+commit b4dfae11f4904ce5233c46c362fcf9df93ba97e1
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:49:31 2022 +0530
+
+    add song1
+
+commit 0327b2815df2e528207f4d1dd33d0498abccc730
+Merge: 5a35ab7 789b2e6
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:42:53 2022 +0530
+
+Date:   Tue Jul 19 16:42:53 2022 +0530
+
+    Merge branch 'song1'
+
+commit 5a35ab7f5f07d407b42f5057e8858efbb42a50dc
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:41:45 2022 +0530
+
+    add songs list
+
+
+commit 789b2e61d8880fbc47e6135bcbba4d03bde830cc
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:39:58 2022 +0530
+
+    add song1
+
+commit ebb9e865c7a31360143a96e86c69be36032863a5
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:37:21 2022 +0530
+
+    add song1
+
+commit d0ad95bf66e1716926f6e2efcb9486ad3b5d67e0
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:33:06 2022 +0530
+
+    add music player
+
+commit 3c5f9b5890343fd6d8ecedd80b0c9ac915870fdc
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:31:06 2022 +0530
+
+    add screen guard
+
+commit b07d788d0ceef4b693502821a877fe862124661a
+Author: Kari Laxman <laxmankari28@gmail.com>
+Date:   Tue Jul 19 16:30:19 2022 +0530
+
+:
